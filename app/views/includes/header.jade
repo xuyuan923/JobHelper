@@ -1,0 +1,52 @@
+.navbar.navbar-default.navbar-static-top(role="navigation")
+    .container
+        .navbar-header.col-md-3
+            a.navbar-brand(href="/") 学长学姐帮你忙找工作后台
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav.col-md-5
+                li.dropdown
+                    a.dropdown-toggle(href="javascript:void(0)",data-toggle="dropdown",aria-expanded="false") 我的主页
+                        b.caret
+                    ul.dropdown-menu(role="menu")
+                        li
+                            a(href="/admin/line/list/my") 需求列表
+                        li.divider
+                        li
+                            a(href="/admin/line/my") 业务线
+                li.dropdown
+                    a.dropdown-toggle(href="javascript:void(0)",data-toggle="dropdown",aria-expanded="false") 业务线
+                        b.caret
+                    ul.dropdown-menu(role="menu")
+                        li
+                            a(href="/admin/line/role") 资源占用
+                        li.divider
+                        li
+                            a(href="/admin/all/issue/line") 需求列表
+            ul.nav.navbar-nav.navbar-right
+                if user
+                    li
+                        a(href="/admin/member/new") 新建个人信息
+                li
+                    if user
+                        p.navbar-text.navbar-right
+                            span 欢迎您：#{user.name}
+                            span &nbsp;|&nbsp;
+                            a.navbar-link(href="/logout") 登出
+                    else
+                        p.navbar-text.navbar-right
+                            a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal") 登录
+#signinModal.modal.fade
+    .modal-dialog
+        .modal-content
+            form(method="POST",action="/user/signin")
+                .modal-header 管理员登录
+                    .modal-body
+                        .form-group
+                            label(for="signinName") 用户名
+                            input#signinName.form-control(name="user[name]",type="text")
+                        .form-group
+                            label(for="signinPassword") 密码
+                            input#signinPassword.form-control(name="user[password]",type="password")
+                .modal-footer
+                    button.btn.btn-danger(type="button",data-dismiss="modal") 关闭
+                    button.btn.btn-success(type="submit") 登录

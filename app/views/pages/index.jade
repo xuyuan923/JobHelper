@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            h3.page-header 成员广场
+            each item in members
+                .col-md-2
+                    .thumbnail
+                        a(href="/member/#{item._id}")
+                        .caption
+                            h3 #{item.nickName}
+                            p: a.btn.btn-primary(href="/member/#{item._id}",role="button") 查看详情
