@@ -6,13 +6,29 @@ var mongoose = require('mongoose');
 var MongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
 var logger = require('morgan'); //在vim里打印开发环境日志
+var fs = require('fs');
+//var multer = require('multer');
 var port = process.env.PORT || 3000;
 var app = express();
 var dbUrl = 'mongodb://localhost/job';
 mongoose.connect(dbUrl);
 app.set('views', './app/views/pages');
 app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser());
+//上传文件
+//app.use(multer({
+//    dest: "./public/upload",
+//    rename: function (fieldname, filename) {
+//        return filename + Date.now()
+//    },
+//    onFileUploadStart: function (file) {
+//        console.log(file.originalname + ' is starting ...')
+//    },
+//    onFileUploadComplete: function (file) {
+//        console.log(file.fieldname + ' uploaded to  ' + file.path)
+//    }
+//}))
 app.use(cookieParser());
 //session中配置secret
 app.use(session({
@@ -32,7 +48,6 @@ if("development" === app.get("env")){
     mongoose.set("debug",true);
 }
 require('./config/routes')(app);
-app.use(express.static(path.join(__dirname, 'public')));
 app.locals.moment = require('moment');
 app.listen(port);
 console.log('jobhelper started on port ' + port);

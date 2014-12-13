@@ -1,6 +1,7 @@
 /**
  * 路由文件
  */
+var multer = require('multer');
 var Index = require('../app/controllers/index');
 var User = require('../app/controllers/user');
 var Member = require('../app/controllers/member');
@@ -23,7 +24,7 @@ module.exports = function(app){
     app.get('/member/:id',Member.detail);
     app.get('/admin/member/new',User.signinRequired,Member.new);
     app.get('/admin/member/update/:id',User.signinRequired,Member.update);
-    app.post('/admin/member',User.signinRequired,Member.save);
+    app.post('/admin/member',[multer({ dest: '../public/upload/'}),User.signinRequired,Member.save]);
     app.get('/admin/member/list',User.signinRequired,Member.list);
     app.post('/admin/member/list',User.signinRequired,Member.del);
 

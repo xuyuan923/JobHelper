@@ -23,7 +23,8 @@
     "mongoose": "^3.8.2",
     "morgan": "^1.0.1",
     "static-favicon": "~1.0.0",
-    "underscore": "*"
+    "underscore": "*",
+    "multer": "*"
   },
   "description": "",
   "main": "app.js",
