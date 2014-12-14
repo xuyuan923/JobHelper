@@ -62,7 +62,8 @@ block content
             .form-group
                 label.col-sm-2.control-label 大学生活及建议
                 .col-sm-10
-                    input.form-control(type="text",name="member[sug]",value=member.sug)
+                    //input.form-control(type="text",name="member[sug]",value=member.sug)
+                    script(id="editor",type="text/plain",style="width:800px;height:400px;")
             .form-group
                 label.col-sm-2.control-label 面试分享
                 .col-sm-10
@@ -70,3 +71,7 @@ block content
             .form-group
                 .col-sm-offset-2.col-sm-10
                     button.btn.btn-default(type="submit") 保存
+    script(type="text/javascript",charset="utf-8",src="/libs/ueditor/ueditor.config.js")
+    script(type="text/javascript",charset="utf-8",src="/libs/ueditor/ueditor.all.min.js")
+    script(src="/libs/ueditor/lang/zh-cn.js")
+    script(src="/js/editor.js")

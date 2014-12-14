@@ -24,7 +24,8 @@
     "morgan": "^1.0.1",
     "static-favicon": "~1.0.0",
     "underscore": "*",
-    "multer": "*"
+    "multer": "*",
+    "ueditor": "^1.0.0"
   },
   "description": "",
   "main": "app.js",

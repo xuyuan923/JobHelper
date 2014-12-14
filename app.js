@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var logger = require('morgan'); //在vim里打印开发环境日志
 var fs = require('fs');
 var multer = require('multer');
+//node富文本编辑器
+var ueditor = require("ueditor");
 var port = process.env.PORT || 3000;
 var app = express();
 var dbUrl = 'mongodb://localhost/job';
@@ -15,8 +17,35 @@ mongoose.connect(dbUrl);
 app.set('views', './app/views/pages');
 app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser());
-//上传文件
+//app.use(bodyParser());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+//ueditor上传图片
+app.use("/ueditor/ue", ueditor(path.join(__dirname, 'public'), function(req, res, next) {
+    // ueditor 客户发起上传图片请求
+    if (req.query.action === 'uploadimage') {
+        var foo = req.ueditor;
+
+        var imgname = req.ueditor.filename;
+
+        var img_url = '/images/ueditor/' ;
+        res.ue_up(img_url); //你只要输入要保存的地址 。保存操作交给ueditor来做
+    }
+    //  客户端发起图片列表请求
+    else if (req.query.action === 'listimage') {
+        var dir_url = '/images/ueditor/';
+        res.ue_list(dir_url); // 客户端会列出 dir_url 目录下的所有图片
+    }
+    // 客户端发起其它请求
+    else {
+        // console.log('config.json')
+        res.setHeader('Content-Type', 'application/json');
+        res.redirect('/ueditor/nodejs/config.json');
+    }
+}));
+//上传头像
 app.use(multer({
     dest: "./public/upload",
     rename: function (fieldname, filename) {
@@ -30,6 +59,7 @@ app.use(multer({
         done=true;
     }
 }))
+
 app.use(cookieParser());
 //session中配置secret
 app.use(session({
