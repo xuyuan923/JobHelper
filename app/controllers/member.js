@@ -59,34 +59,23 @@ exports.update = function (req, res) {
 
 // admin post line
 exports.save = function (req, res) {
-    console.log('req.body.member._id:'+req.body.member._id);
-    console.dir('req.files.name:'+req.files.name);
     var id = req.body.member._id;
+    var avator = req.files.avator.name;
     var memberObj = req.body.member;
     var _member;
-    //// 获得文件的临时路径
-    //var tmp_path = req.files.thumbnail.path;
-    //// 指定文件上传后的目录 - 示例为"images"目录。
-    //var target_path = '../../public/upload/' + req.files.thumbnail.name;
-    //// 移动文件
-    //fs.rename(tmp_path, target_path, function(err) {
-    //    if (err) throw err;
-    //    // 删除临时文件夹文件,
-    //    fs.unlink(tmp_path, function() {
-    //        if (err) throw err;
-    //        res.send('File uploaded to: ' + target_path + ' - ' + req.files.thumbnail.size + ' bytes');
-    //    });
-    //});
+    if(done==true){
+        console.log(req.files);
+    }
     //修改业务线
     if (id) {
-        console.log('id:'+id);
-        console.dir('req.files.name:'+req.files.name);
+        console.log('avator:'+avator);
         Member.findById(id, function (err, member) {
             if (err) {
                 console.log(err)
             }
             _member = _.extend(member, memberObj);
             _member.save(function (err, member) {
+                Member.update({_id:id},{$set:{avator:avator}}).exec();
                 if (err) {
                     console.log(err)
                 }
@@ -94,9 +83,11 @@ exports.save = function (req, res) {
             })
         })
     } else {
+        console.log('avator:'+avator);
+
         //新建业务线
         _member = new Member({
-            avator: memberObj.avator,
+            avator: avator,
             nickName: memberObj.nickName,
             grade: memberObj.grade,
             isBachelor: memberObj.isBachelor,
@@ -115,6 +106,7 @@ exports.save = function (req, res) {
             shares: memberObj.shares
         });
         _member.save(function (err, member) {
+            //Member.update({_id:id},{$set:{avator:avator}}).exec();
             if (err) {
                 console.log(err)
             }

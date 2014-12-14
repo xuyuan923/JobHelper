@@ -6,6 +6,8 @@ block content
             .form-group
                 label.col-sm-2.control-label 头像:
                 .col-sm-10
+                    if member._id
+                        image(src='/upload/'+member.avator)
                     label.control-label #{member.avator}
             .form-group
                 label.col-sm-2.control-label 昵称:
