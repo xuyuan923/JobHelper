@@ -4,7 +4,7 @@ var MemberSchema = new Schema({
     avator: String,
     nickName: String,
     grade: String,
-    isBachelor: Boolean,
+    educational: String,
     zanNum: Number,
     desc: String, //一句话介绍
     views: Number,

@@ -30,7 +30,7 @@ app.use("/ueditor/ue", ueditor(path.join(__dirname, 'public'), function(req, res
 
         var imgname = req.ueditor.filename;
 
-        var img_url = '/images/ueditor/' ;
+        var img_url = '/images/ueditor/';
         res.ue_up(img_url); //你只要输入要保存的地址 。保存操作交给ueditor来做
     }
     //  客户端发起图片列表请求

@@ -26,7 +26,7 @@ exports.new = function (req, res) {
             avator: '',
             nickName: '',
             grade: '',
-            isBachelor: '',
+            educational: '',
             zanNum: '',
             desc: '', //一句话介绍
             views: '',
@@ -60,22 +60,17 @@ exports.update = function (req, res) {
 // admin post line
 exports.save = function (req, res) {
     var id = req.body.member._id;
-    var avator = req.files.avator.name;
     var memberObj = req.body.member;
     var _member;
-    if(done==true){
-        console.log(req.files);
-    }
     //修改业务线
     if (id) {
-        console.log('avator:'+avator);
         Member.findById(id, function (err, member) {
             if (err) {
                 console.log(err)
             }
             _member = _.extend(member, memberObj);
             _member.save(function (err, member) {
-                Member.update({_id:id},{$set:{avator:avator}}).exec();
+                //Member.update({_id:id},{$set:{avator:avator}}).exec();
                 if (err) {
                     console.log(err)
                 }
@@ -83,35 +78,36 @@ exports.save = function (req, res) {
             })
         })
     } else {
-        console.log('avator:'+avator);
-
-        //新建业务线
-        _member = new Member({
-            avator: avator,
-            nickName: memberObj.nickName,
-            grade: memberObj.grade,
-            isBachelor: memberObj.isBachelor,
-            zanNum: memberObj.zanNum,
-            desc: memberObj.desc,
-            views: memberObj.views,
-            qq: memberObj.qq,
-            weixin: memberObj.weixin,
-            tel: memberObj.tel,
-            mail: memberObj.mail,
-            college: memberObj.college,
-            major: memberObj.major,
-            company: memberObj.company,
-            job: memberObj.job,
-            sug: memberObj.sug,
-            shares: memberObj.shares
-        });
-        _member.save(function (err, member) {
-            //Member.update({_id:id},{$set:{avator:avator}}).exec();
-            if (err) {
-                console.log(err)
-            }
-            res.redirect('/member/' + _member.id)
-        })
+        var avator = req.files.avator.name;
+        if(avator && done === true){
+            console.log('avator:'+avator);
+            //新建业务线
+            _member = new Member({
+                avator: avator,
+                nickName: memberObj.nickName,
+                grade: memberObj.grade,
+                educational: memberObj.educational,
+                zanNum: memberObj.zanNum,
+                desc: memberObj.desc,
+                views: memberObj.views,
+                qq: memberObj.qq,
+                weixin: memberObj.weixin,
+                tel: memberObj.tel,
+                mail: memberObj.mail,
+                college: memberObj.college,
+                major: memberObj.major,
+                company: memberObj.company,
+                job: memberObj.job,
+                sug: memberObj.sug,
+                shares: memberObj.shares
+            });
+            _member.save(function (err, member) {
+                if (err) {
+                    console.log(err)
+                }
+                res.redirect('/member/' + _member.id)
+            })
+        }
     }
 };
 

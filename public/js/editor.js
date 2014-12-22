@@ -100,3 +100,12 @@ function enableBtn() {
         UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
     }
 }
+
+$(document).ready(function(){
+    var sugContent = UE.getEditor('editor').getContentTxt();
+    console.log('sugContent:'+sugContent);
+    $('#sug').val(sugContent);
+    var sug_value = $('#sug').value;
+    console.log('sug value:'+sug_value);
+});
+
