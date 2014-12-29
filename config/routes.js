@@ -1,11 +1,11 @@
 /**
  * 路由文件
  */
-var multer = require('multer');
 var Index = require('../app/controllers/index');
 var User = require('../app/controllers/user');
 var Member = require('../app/controllers/member');
 module.exports = function(app){
+    //管理员页面
     //预处理用户
     app.use(function(req,res,next){
         var _user = req.session.user;
@@ -27,5 +27,9 @@ module.exports = function(app){
     app.post('/admin/member',User.signinRequired,Member.save);
     app.get('/admin/member/list',User.signinRequired,Member.list);
     app.post('/admin/member/list',User.signinRequired,Member.del);
+
+    //用户默认打开页
+    //首页
+    app.get('/index',Member.index);
 
 }

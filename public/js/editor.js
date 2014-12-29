@@ -102,10 +102,21 @@ function enableBtn() {
 }
 
 $(document).ready(function(){
-    var sugContent = UE.getEditor('editor').getContentTxt();
-    console.log('sugContent:'+sugContent);
-    $('#sug').val(sugContent);
-    var sug_value = $('#sug').value;
-    console.log('sug value:'+sug_value);
+    $('.saveSug').click(function(){
+        var sugContent = UE.getEditor('editor').getContent();
+        var $sugContent = $.parseHTML(sugContent)
+        $('#sug').val(sugContent);
+        $('#nodeSug').append($sugContent);
+        debugger;
+        console.log($sugContent);
+    });
+    $('.saveShares').click(function(){
+        var sharesContent = UE.getEditor('editor').getContent();
+        $('#shares').val(sharesContent);
+    });
+
+
+
+
 });
 

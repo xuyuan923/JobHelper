@@ -1,0 +1,60 @@
+#header {
+  margin: 0 auto;
+  width: 93.75%;
+}
+#header form {
+  position: relative;
+}
+#header form input {
+  width: 100%;
+  font-size: 1rem;
+  height: 3.3rem;
+  line-height: 3.3rem;
+  color: #7f7e7e;
+  text-indent: 0.8rem;
+}
+#header form .submit {
+  position: absolute;
+  float: right;
+  right: 0rem;
+  top: 1rem;
+  width: 2.7rem;
+  height: 2rem;
+  padding-left: 4rem;
+  border: none;
+  border-left: 1px solid #9ea7ab;
+  background: url('/images/searchicon.png') no-repeat center center;
+  cursor: pointer;
+  background-size: 2.7rem 2rem;
+  -webkit-background-size: 2.7rem 2rem;
+  display: inline-block;
+}
+#main {
+  width: 93.75%;
+  margin: auto;
+}
+#main .main-wrapper {
+  margin: 1.4rem 1.9rem;
+}
+#main .main-wrapper h1 {
+  font-size: 2.4rem;
+  margin: 0 auto;
+  width: 26.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #626262;
+  text-align: left;
+}
+#main .main-wrapper ul {
+  width: 93.75%;
+  overflow: hidden;
+}
+#main .main-wrapper ul li {
+  float: left;
+  width: 46.875%;
+  margin: 1.9rem;
+}
+#main .main-wrapper ul li img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 2.75rem;
+}

@@ -5,23 +5,14 @@
         .navbar-collapse.collapse
             ul.nav.navbar-nav.col-md-5
                 li.dropdown
-                    a.dropdown-toggle(href="javascript:void(0)",data-toggle="dropdown",aria-expanded="false") 我的主页
+                    a.dropdown-toggle(href="javascript:void(0)",data-toggle="dropdown",aria-expanded="false") 信息管理
                         b.caret
                     ul.dropdown-menu(role="menu")
                         li
-                            a(href="/admin/line/list/my") 需求列表
+                            a(href="/admin/member/list/") 成员列表
                         li.divider
                         li
-                            a(href="/admin/line/my") 业务线
-                li.dropdown
-                    a.dropdown-toggle(href="javascript:void(0)",data-toggle="dropdown",aria-expanded="false") 业务线
-                        b.caret
-                    ul.dropdown-menu(role="menu")
-                        li
-                            a(href="/admin/line/role") 资源占用
-                        li.divider
-                        li
-                            a(href="/admin/all/issue/line") 需求列表
+                            a(href="#") 业务线
             ul.nav.navbar-nav.navbar-right
                 if user
                     li

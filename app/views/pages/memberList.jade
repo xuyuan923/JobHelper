@@ -1,3 +1,4 @@
+//管理员成员列表页
 extends ../layout
 block content
     .container
@@ -24,8 +25,8 @@ block content
                         td #{item.college}
                         td #{item.company}
                         td #{item.job}
-                        td: a.btn.btn-info.btn-xs(target="_blank",href="../../member/#{item._id}") 查看
-                        td: a.btn.btn-success.btn-xs(target="_blank",href="../member/update/#{item._id}") 修改
+                        td: a.btn.btn-info.btn-xs(target="_blank",href="/member/#{item._id}") 查看
+                        td: a.btn.btn-success.btn-xs(target="_blank",href="/admin/member/update/#{item._id}") 修改
                         td
                             button.btn.btn-danger.del.btn-xs(type="button",data-id="#{item._id}") 删除
     script(src="/js/admin.js")

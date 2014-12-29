@@ -1,3 +1,4 @@
+//成员录入、修改页
 extends ../layout
 block content
     .container.col-sm-offset-1.col-md-8
@@ -48,10 +49,6 @@ block content
                 .col-sm-5
                     input.form-control(type="text",name="member[job]",value=member.job)
             .form-group
-                label.col-sm-2.control-label 一句话介绍
-                .col-sm-10
-                    input.form-control(type="text",name="member[desc]",value=member.desc)
-            .form-group
                 label.col-sm-2.control-label QQ号
                 .col-sm-5
                     input.form-control(type="text",name="member[qq]",value=member.qq)
@@ -68,14 +65,22 @@ block content
                 .col-sm-5
                     input.form-control(type="text",name="member[mail]",value=member.mail)
             .form-group
+                label.col-sm-2.control-label 一句话介绍
+                .col-sm-10
+                    input.form-control(type="text",name="member[desc]",value=member.desc)
+            .form-group
                 label.col-sm-2.control-label 大学生活及建议
                 .col-sm-10
-                    input#sug(type="hidden",name="member[sug]",value)
-                    script(id="editor",type="text/plain",style="width:800px;height:400px;")
+                    script(id="editor",type="text/plain",style="width:680px;height:400px;")
+                    button.btn.btn-primary.saveSug(type="button") 保存建议，将显示在下面多行文本框
+                    textarea.form-control#sug(name="member[sug]",value=member.sug,cols="50",rows="4") #{member.sug}
+                    div#nodeSug
             .form-group
                 label.col-sm-2.control-label 面试分享
                 .col-sm-10
-                    input.form-control(type="text",name="member[shares]",value=member.shares)
+                    script(id="editor",type="text/plain",style="width:680px;height:400px;")
+                    button.btn.btn-primary.saveShares(type="button") 保存分享，将显示在下面多行文本框
+                    textarea.form-control#shares(name="member[shares]",value=member.shares,cols="50",rows="4") #{member.shares}
             .form-group
                 .col-sm-offset-2.col-sm-10
                     button.btn.btn-default(type="submit") 保存

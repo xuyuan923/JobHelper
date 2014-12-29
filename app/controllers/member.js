@@ -140,4 +140,9 @@ exports.del = function (req, res) {
     }
 };
 
+//首页
+exports.index = function(req,res){
+    res.render('appindex')
+}
+
 

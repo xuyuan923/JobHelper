@@ -1,3 +1,4 @@
+//成员信息详情页
 extends ../layout
 block content
     .container.col-sm-offset-1.col-md-8
@@ -37,10 +38,6 @@ block content
                 .col-sm-5
                     label.control-label #{member.job}
             .form-group
-                label.col-sm-2.control-label 一句话介绍:
-                .col-sm-5
-                    label.control-label #{member.desc}
-            .form-group
                 label.col-sm-2.control-label QQ号:
                 .col-sm-10
                     label.control-label #{member.qq}
@@ -57,9 +54,15 @@ block content
                 .col-sm-10
                     label.control-label #{member.mail}
             .form-group
+                label.col-sm-2.control-label 一句话介绍:
+                .col-sm-5
+                    label.control-label #{member.desc}
+            .form-group
                 label.col-sm-2.control-label 大学生活及建议:
                 .col-sm-10
-                    label.control-label #{member.sug}
+                    //textarea.form-control#sug(name="member[sug]",value=member.sug,cols="50",rows="4") #{member.sug}
+                    div.sug
+                        | #{member.sug}
             .form-group
                 label.col-sm-2.control-label 面试分享:
                 .col-sm-10
@@ -71,3 +74,4 @@ block content
                     .control-label
                     button.btn.btn-danger.del.btn-xs(type="button",data-id="#{member._id}") 删除
     script(src="/js/admin.js")
+    script(src="/js/memberDetail.js")
