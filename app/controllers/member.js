@@ -145,4 +145,9 @@ exports.index = function(req,res){
     res.render('appindex')
 }
 
+//个人信息详情页
+exports.detail = function(req,res){
+    res.render('appdetail');
+}
+
 

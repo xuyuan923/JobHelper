@@ -31,5 +31,7 @@ module.exports = function(app){
     //用户默认打开页
     //首页
     app.get('/index',Member.index);
+    //个人详情页
+    app.get('/detail',Member.detail);
 
 }

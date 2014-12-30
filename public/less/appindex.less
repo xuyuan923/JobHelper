@@ -1,8 +1,18 @@
 @bodyWidth: 640px;
 @searchBg: '/images/searchicon.png';
-#header{
+@bodyBg: '/images/bg.jpg';
+html {
+  font-size: 62.5%;
+}
+body{
   margin: 0 auto;
+  background: url(@bodyBg) center center no-repeat;
+}
+#header{
+  margin: 2rem auto;
   width: 100%*600/@bodyWidth;
+  opacity: 0.9;
+  overflow: hidden;
   form{
     position: relative;
     input{
@@ -12,49 +22,72 @@
       line-height: 3.3rem;
       color: #7f7e7e;
       text-indent: 0.8rem;
+      border: none;
     }
     .submit{
       position: absolute;
       float: right;
       right: 0rem;
       top: 1rem;
-      width: 2.7rem;
+      width: 3.7rem;
       height: 2rem;
-      padding-left: 4rem;
       border: none;
       border-left: 1px solid #9ea7ab;
       background: url(@searchBg) no-repeat center center;
       cursor: pointer;
       background-size: 2.7rem 2rem;
       -webkit-background-size: 2.7rem 2rem;
-      display:inline-block;
     }
   }
 }
 #main{
-  width: 100%*600/@bodyWidth;
   margin: auto;
+  width: 100%*600/@bodyWidth;
+  background-color: #ffffff;
+  opacity: 0.8;
   .main-wrapper{
-    margin: 1.4rem 1.9rem;
+    padding: 0.8rem 1.9rem;
     h1{
-      font-size: 2.4rem;
+      font-size: 1.2rem;
+      height: 2.4rem;
+      line-height: 2.4rem;
       margin: 0 auto;
-      width: 26.4rem;
-      padding-bottom: 0.6rem;
       border-bottom: 1px solid #626262;
       text-align:left;
+      letter-spacing: 0.5rem;
     }
     ul{
-      width: 100%*600/@bodyWidth;
+      padding: 0;
+      margin: 0;
       overflow: hidden;
       li{
+        position: relative;
+        margin: 2rem 0;
         float: left;
-        width: 100%*300/@bodyWidth;
-        margin: 1.9rem;
+        list-style: none;
+        width: 50%;
         img{
           width: 5.5rem;
           height: 5.5rem;
+          margin: 0 100%*75/260;
           border-radius: 2.75rem;
+        }
+        label{
+          font-size: 1.2rem;
+          position: absolute;
+          left: 40%;
+          top: 2rem;
+          color: #f93407;
+        }
+        p{
+          margin: 0.7em 10%;
+          width: 80%;
+          font-size: 1rem;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: keep-all;
         }
       }
     }
