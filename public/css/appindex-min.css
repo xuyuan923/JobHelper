@@ -3,7 +3,7 @@ html {
 }
 body {
   margin: 0 auto;
-  background: url('/images/bg.jpg') center center no-repeat;
+  background: url('/images/bg.jpg') center center repeat;
 }
 #header {
   margin: 2rem auto;
