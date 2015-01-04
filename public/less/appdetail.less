@@ -1,5 +1,13 @@
 @bodyWidth: 640px;
 @zanPng: '/images/zan.png';
+@contactPng: '/images/contact.png';
+@sugPng: '/images/suggestion.png';
+@sharesPng: '/images/shares.png';
+*{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 html {
   font-size: 62.5%;
 }
@@ -8,10 +16,14 @@ body{
   background: #e5e5e5;
 }
 #header{
-  color: #ffffff;
   background: #02a4ca;
+  a{
+    display: block;
+    text-decoration: none;
+  }
   h1{
     margin: 0;
+    color: #ffffff;
     font-size: 1.6rem;
     height: 3.7rem;
     line-height: 3.7rem;
@@ -24,53 +36,164 @@ body{
 #main{
   .main-top{
     position: relative;
-    margin-top: 1.5rem;
-    overflow: hidden;
-    .avator{
-      float: left;
-      margin-left: 1.7rem;
-      img{
-        width: 6.3rem;
-        height: 6.3rem;
-        border-radius: 3.15rem;
+    padding-top: 1.5rem;
+    background-color: #ffffff;
+    .main-info{
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #f2f2f2;
+      .avator{
+        float: left;
+        margin-left: 1.7rem;
+        img{
+          width: 6.3rem;
+          height: 6.3rem;
+          border-radius: 3.15rem;
+        }
       }
-    }
-    .nick{
-      float: left;
-      margin-left: 1.8rem;
-      h1{
-        font-size: 1.2rem;
-        .nickname{
+      .nick{
+        float: left;
+        margin-left: 1.8rem;
+        h1{
+          padding-top: 1.5rem;
+          font-size: 1.2rem;
+          .nickname{
+            padding-top: 1rem;
+            font-size: 1.5rem;
+          }
+        }
+      }
+      .zan{
+        position: absolute;
+        float: right;
+        right: 0;
+        top: 0;
+        border: 1px solid #cdcdcd;
+        border-radius: 1.2rem 0 0 1.2rem;
+        width: 5.5rem;
+        height: 3rem;
+        background: #f1f1f1;
+        label{
+          margin-left: 1rem;
           font-size: 1.5rem;
+          height: 3rem;
+          line-height: 3rem;
+          color: #809199;
+          font-weight: bold;
+        }
+        .zan-icon{
+          position: absolute;
+          z-index: 100;
+          top: 0.2rem;
+          right: 0.5rem;
+          width: 2.1rem;
+          height: 2.1rem;
+          background-size: 2.1rem 2.1rem !important;
+          -webkit-background-size: 2.1rem 2.1rem !important;
+          background: url(@zanPng) no-repeat center center;
+          cursor: pointer;
         }
       }
     }
-    .zan{
-      position: absolute;
-      float: right;
-      right: 0;
-      top: 0;
-      border: 1px solid #cdcdcd;
-      border-radius: 1.2rem 0 0 1.2rem;
-      width: 5.5rem;
-      height: 3rem;
-      background: #f1f1f1;
-      label{
-        margin-left: 1rem;
-        font-size: 1.5rem;
-        height: 3rem;
-        line-height: 3rem;
+    .info-list{
+      overflow: hidden;
+      ul{
+        padding: 0.95rem 0.7rem;
+        overflow: hidden;
+        li{
+          float: left;
+          width: 10.1rem;
+          border-right: 1px solid #e6e6e6;
+          text-align: center;
+          font-family: '黑体';
+          &.li-third{
+            border-right: none;
+          }
+          .title1{
+            font-size: 1.5rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+          }
+          .title2{
+            font-size: 1.2rem;
+            height: 1.6rem;
+            line-height: 1.6rem;
+          }
+        }
       }
-      .zan-icon{
-        position: absolute;
-        z-index: 100;
-        top: 0;
-        right: 0.7rem;
-        width: 2.1rem;
-        height: 2.1rem;
-        background-size: 2.1rem 2.1rem;
-        -webkit-background-size: 2.1rem 2.1rem;
-        background: url(@zanPng) no-repeat center center;
+    }
+  }
+  .main-mid{
+    overflow: hidden;
+    margin: 1rem 0;
+    background-color: #ffffff;
+    ul{
+      overflow: hidden;
+      li{
+        margin: 1.5rem 0;
+        float: left;
+        width: 10rem;
+        text-align: center;
+        font-family: '黑体';
+        .common{
+          position: relative;
+          margin: 0 2.5rem 1.3rem;
+          width: 5.4rem;
+          height:5.4rem;
+          border-radius: 2.7rem;
+          background-color: #00a0e9;
+          span{
+            position: absolute;
+            color: #ffffff;
+            width: 5.4rem;
+            height: 5.4rem;
+            line-height: 5.4rem;
+            text-align: center;
+            font-size: 1.5rem;
+            left: 0;
+            top: 0;
+            text-align: center;
+          }
+          &.contact{
+            cursor: pointer;
+            background: url(@contactPng) no-repeat;
+            background-size: 5.4rem 5.4rem;
+            -webkit-background-size: 5.4rem 5.4rem;
+          }
+        }
+        p{
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  .mid-bot{
+    background-color: #ffffff;
+    margin-top: 1rem;
+    p{
+      padding: 1.3rem 0.9rem;
+      border-bottom: 1px solid #e5e5e5;
+      overflow: hidden;
+      i{
+        float: left;
+        width: 1.8rem;
+        height: 1.8rem;
+        background-size: 1.8rem 1.8rem !important;
+        -webkit-background-size: 1.8rem 1.8rem !important;
+        &.sug{
+          background: url(@sugPng) center center no-repeat;
+        }
+        &.shares{
+          background: url(@sharesPng) center center no-repeat;
+        }
+      }
+      span{
+        float: left;
+        margin-left: 0.8rem;
+        font-size: 1.3rem;
+        height: 1.8rem;
+        line-height: 1.8rem;
       }
     }
   }

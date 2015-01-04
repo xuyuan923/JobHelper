@@ -2,9 +2,10 @@ extends ../applayout
 block content
     link(rel="stylesheet" type="text/css" href="/css/appdetail-min.css")
     #header
-        h1
-            label <
-            span 学长学姐帮你找工作
+        a(href="/index")
+            h1
+                label <
+                span 学长学姐帮你找工作
     #main
         .main-top
             .main-info
@@ -28,9 +29,26 @@ block content
                     li
                         p.title1 专业
                         p.title2 仪器学院
-                    li
+                    li.li-third
                         p.title1 1K+
-                        p.title2 访问他得人
-
+                        p.title2 访问他的人
         .main-mid
+            ul
+                li
+                    .common
+                        span 搜狐
+                    p 签约公司
+                li
+                    .common
+                        span 产品
+                    p 应聘职位
+                li
+                    .common.contact
+                    p 联系TA
         .mid-bot
+            p
+                i.sug
+                span 大学生活及建议
+            p
+                i.shares
+                span 面试分享

@@ -1,3 +1,8 @@
+* {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 html {
   font-size: 62.5%;
 }
@@ -6,11 +11,15 @@ body {
   background: #e5e5e5;
 }
 #header {
-  color: #ffffff;
   background: #02a4ca;
+}
+#header a {
+  display: block;
+  text-decoration: none;
 }
 #header h1 {
   margin: 0;
+  color: #ffffff;
   font-size: 1.6rem;
   height: 3.7rem;
   line-height: 3.7rem;
@@ -21,29 +30,37 @@ body {
 }
 #main .main-top {
   position: relative;
-  margin-top: 1.5rem;
-  overflow: hidden;
+  padding-top: 1.5rem;
+  background-color: #ffffff;
 }
-#main .main-top .avator {
+#main .main-top .main-info {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+#main .main-top .main-info .avator {
   float: left;
   margin-left: 1.7rem;
 }
-#main .main-top .avator img {
+#main .main-top .main-info .avator img {
   width: 6.3rem;
   height: 6.3rem;
   border-radius: 3.15rem;
 }
-#main .main-top .nick {
+#main .main-top .main-info .nick {
   float: left;
   margin-left: 1.8rem;
 }
-#main .main-top .nick h1 {
+#main .main-top .main-info .nick h1 {
+  padding-top: 1.5rem;
   font-size: 1.2rem;
 }
-#main .main-top .nick h1 .nickname {
+#main .main-top .main-info .nick h1 .nickname {
+  padding-top: 1rem;
   font-size: 1.5rem;
 }
-#main .main-top .zan {
+#main .main-top .main-info .zan {
   position: absolute;
   float: right;
   right: 0;
@@ -54,20 +71,122 @@ body {
   height: 3rem;
   background: #f1f1f1;
 }
-#main .main-top .zan label {
+#main .main-top .main-info .zan label {
   margin-left: 1rem;
   font-size: 1.5rem;
   height: 3rem;
   line-height: 3rem;
+  color: #809199;
+  font-weight: bold;
 }
-#main .main-top .zan .zan-icon {
+#main .main-top .main-info .zan .zan-icon {
   position: absolute;
   z-index: 100;
-  top: 0;
-  right: 0.7rem;
+  top: 0.2rem;
+  right: 0.5rem;
   width: 2.1rem;
   height: 2.1rem;
-  background-size: 2.1rem 2.1rem;
-  -webkit-background-size: 2.1rem 2.1rem;
+  background-size: 2.1rem 2.1rem !important;
+  -webkit-background-size: 2.1rem 2.1rem !important;
   background: url('/images/zan.png') no-repeat center center;
+  cursor: pointer;
+}
+#main .main-top .info-list {
+  overflow: hidden;
+}
+#main .main-top .info-list ul {
+  padding: 0.95rem 0.7rem;
+  overflow: hidden;
+}
+#main .main-top .info-list ul li {
+  float: left;
+  width: 10.1rem;
+  border-right: 1px solid #e6e6e6;
+  text-align: center;
+  font-family: '黑体';
+}
+#main .main-top .info-list ul li.li-third {
+  border-right: none;
+}
+#main .main-top .info-list ul li .title1 {
+  font-size: 1.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+#main .main-top .info-list ul li .title2 {
+  font-size: 1.2rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+}
+#main .main-mid {
+  overflow: hidden;
+  margin: 1rem 0;
+  background-color: #ffffff;
+}
+#main .main-mid ul {
+  overflow: hidden;
+}
+#main .main-mid ul li {
+  margin: 1.5rem 0;
+  float: left;
+  width: 10rem;
+  text-align: center;
+  font-family: '黑体';
+}
+#main .main-mid ul li .common {
+  position: relative;
+  margin: 0 2.5rem 1.3rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  border-radius: 2.7rem;
+  background-color: #00a0e9;
+}
+#main .main-mid ul li .common span {
+  position: absolute;
+  color: #ffffff;
+  width: 5.4rem;
+  height: 5.4rem;
+  line-height: 5.4rem;
+  font-size: 1.5rem;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+#main .main-mid ul li .common.contact {
+  cursor: pointer;
+  background: url('/images/contact.png') no-repeat;
+  background-size: 5.4rem 5.4rem;
+  -webkit-background-size: 5.4rem 5.4rem;
+}
+#main .main-mid ul li p {
+  font-size: 1.2rem;
+}
+#main .mid-bot {
+  background-color: #ffffff;
+  margin-top: 1rem;
+}
+#main .mid-bot p {
+  padding: 1.3rem 0.9rem;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+}
+#main .mid-bot p i {
+  float: left;
+  width: 1.8rem;
+  height: 1.8rem;
+  background-size: 1.8rem 1.8rem !important;
+  -webkit-background-size: 1.8rem 1.8rem !important;
+}
+#main .mid-bot p i.sug {
+  background: url('/images/suggestion.png') center center no-repeat;
+}
+#main .mid-bot p i.shares {
+  background: url('/images/shares.png') center center no-repeat;
+}
+#main .mid-bot p span {
+  float: left;
+  margin-left: 0.8rem;
+  font-size: 1.3rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
 }
